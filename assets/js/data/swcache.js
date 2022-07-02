@@ -44,7 +44,7 @@ const resource = [
 const allowedDomains = [
   
 
-  'Dhafo.github.io',
+  'www.dhafo.dev',
 
   
 

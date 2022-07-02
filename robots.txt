@@ -2,4 +2,4 @@ User-agent: *
 
 Disallow: /norobots/
 
-Sitemap: https://dhafo.github.io/Dhafo.github.io/sitemap.xml
+Sitemap: www.dhafo.dev/Dhafo.github.io/sitemap.xml
