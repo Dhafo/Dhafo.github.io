@@ -1,0 +1,79 @@
+---
+title: How I made RO-LL!
+date: 2022-07-28 00:00:00 +/-TTTT
+categories: [Game Jams, GMTK Jam 2022]
+tags: [game jam, gmtk]     # TAG names should always be lowercase
+---
+
+Well, I've decided to try this devlog thing and what better way than start with my GMTK Jam 2022 submission!
+
+So, we started the jam with the theme being revealed to be "Roll of the Dice", and I honestly hated it from the start and complained about it in discord right away but eventually got a decent idea to roll with :)
+
+I knew it was going to be a common idea as someone in our small discord had the same idea already. Side note, I'm totally responsible for Stompey Dicey!
+
+I decided to keep my idea mainly because of how clear the game idea was in my brain. It was like I could imagine every mechanic in the game right away and how they worked internally. I swear I could just play my game in my head at that point like it was a vision, to be a little over dramatic.
+
+In my mind, having a strong vision for a game idea is way better than just trying to aim for originality above all. Plus my idea wasn't a normal dice flipping puzzle game, it had words! But still, to make it slightly more interesting I thought I could add a riddle component to the game where you had to find out which word you needed to spell.
+
+So, after I got my idea I decided to plan things out. This was basically just me deciding to make the entire base game on the first day, and worrying about literally everything else on the second day! I probably could have planned a bit better...
+
+On day 1 I had a couple of issues to figure out:
+
+First,  how do I handle the player moving and pushing the dice and how do I make the player and the dice collide with walls?
+
+I needed a quick and dirty way to figure that out and honestly that probably took way longer than I expected, as I tried going for some kind of elegant solution where all the walls and objects were on a grid and represented in a matrix AND using the Unity tilemap system for rapid level design.
+
+In the end, after going through various different potential solutions I decided to just do a simple tag search to iterate through all the possible collisions. While this code is a bit of a sin, I figured with the small size of my game, players wouldn't notice any performance problems with such bad code:
+
+
+My second problem was, how the heck do I keep track of all the faces of a die?!
+
+Well, this is the part of the jam where I first learned about the 7 rule: Opposite faces of a die add up to 7!
+
+I wish I had some smart algorithmic explanation of how I figured it out but honestly I just sat there with a die in my hands for like an hour or 2 and monotonously mapped it out like so:
+
+Then, depending on the number I just output different strings!
+
+Lastly, I needed to figure out how to create my win condition. How could I make "LU" and "CK"  create a win condition if it spelled "LUCK"?
+
+Well, every time I moved the die I simply checked if there were any adjecent dice, and if so I'd just add them in order until the strings added up to my keyword right? (no one realized in the jam but you could spell words top down!!)
+
+But what if you had a word with 3 dice? It wouldn't be as simple. So I had to write a function that fetched the neighbor in the direction of the dice that are creating a string! Another coding sin was committed here as I didn't really need 4 boxes at the moment so I didn't really need to worry about recursion so why bother? >:)
+
+
+For the hints, I decided to try out the yarn spinner plugin for the first time to handle some basic dialogue with the player. This might have been a mistake since it might have messed with my webgl build!
+
+Anyway after I finished all the basic mechanics, by the end of the first day my game looked like this and worked:
+
+
+I think some people actually enjoyed my quick placeholder art style better than the final product!
+
+On the second day, I went to https://coolors.co/ and generated myself a palette. It gave me a pretty nice palette to work with that reminded me of the newer deus ex games. As I usually like to listen to deus ex soundtrack while I focus, I felt like I should roll with it.
+
+I made simple sprites to fill everything in my level and made sure that everything fit the palette. To enhance the visuals of my game, I also introduced multiple light sources.
+
+Here are all the different lights I used in the scene above!
+
+Disabling any of these lights makes the game look wrong, but all combined it creates a really nice composition. I'm sure there are more performant ways to make interesting effects but I encourage all of you to experiment with adding different lights on top of each other. (Even if it's as basic as a dark purple global light for your darkness and another color for your main "light"!)
+
+For the sound, it's a bit harder to explain in text but one thing I should mention is that I also layered the music with an ambient sound I had lying around to create an interesting sound environment to help match the aesthetic!
+
+At this point, I had been starting to get low on time and skipped my sleep. I had already worked on a few levels on the first day so I just added 2 more levels and quickly decided to move on! (This was definitely the weakest part of the jam for me, and you can tell by my lower enjoyment score!)
+
+I did get a play-tester to try my game and I adjusted the instructions and some of the hints at the last second but things were starting to get a bit stressful!
+
+During the final 3-4 hours of the jam, I decided to upload the build to itch.io before the site inevitably crashed, but nope my web build would refuse to upload! Panic time! And that's how I wasted 3 hours trying to fix my webgl build! AND it STILL didn't work!
+
+I tried pretty much everything I could think of to fix it, I even switched my entire game from the new input system to the old input system within the last hour of the jam because I read it could have potentially been the problem! In the end however, I just made a quick windows build and decided to live with it. I blame trying yarn spinner for the first time without fully understanding it yet in a jam!
+
+My ratings started a bit slow during the voting period but people started clicking my game way more after I upgraded my cover art to this:
+
+
+
+
+With this cover art and basic activity in the GMTK discord, I found myself with more than enough ratings and feedback for my game. So don't you guys worry if you can't get a web build uploaded for a jam!
+
+All in all, this jam was really fun and I did way better in this jam than I've had before! Here are my results!
+
+
+I hope you guys found that enjoyable, I've never written one of these before so please let me know what you think in the comments!
